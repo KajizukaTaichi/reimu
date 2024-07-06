@@ -183,5 +183,5 @@
     # Push value on the stack #
 
     pc 1 add (pc) var # Count up program counter #
-    (Continue...) println () input pop  
+    () println 0.5 sleep  
 ) true while
