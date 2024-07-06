@@ -1,6 +1,6 @@
 # Reimu
 
-Simple stack model virtual machine.
+Simple and efficientive stack model virtual machine.
 Built on Stack technology.
 
 ## Example
