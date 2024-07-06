@@ -216,7 +216,7 @@
         stack reverse 0 del reverse (stack) var
 
         (
-            num1 1 sub (pc) var
+            addr 1 sub (pc) var
         ) () cond 0 equal not if
 
         true (is-executed) var
