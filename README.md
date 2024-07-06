@@ -14,7 +14,7 @@ Built on Stack technology.
 |9005|modulo the number|
 |9006|power the number|
 |9101|is it equal the number|
-|9102|is it less the number|
+|9102|is it lessthan the number|
 |9103|logical not the number|
 |9201|read memory's value|
 |9202|write value in memory|
