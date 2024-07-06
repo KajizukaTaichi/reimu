@@ -36,10 +36,10 @@
     # Add the numbers #
 
     (
-        stack reverse 0 get (num1) var 
+        stack reverse 0 get (num2) var 
         stack reverse 0 del reverse (stack) var
 
-        stack reverse 0 get (num2) var 
+        stack reverse 0 get (num1) var 
         stack reverse 0 del reverse (stack) var
 
         stack num1 num2 sub append (stack) var 
@@ -50,10 +50,10 @@
     # Sub the numbers #
 
     (
-        stack reverse 0 get (num1) var 
+        stack reverse 0 get (num2) var 
         stack reverse 0 del reverse (stack) var
 
-        stack reverse 0 get (num2) var 
+        stack reverse 0 get (num1) var 
         stack reverse 0 del reverse (stack) var
 
         stack num1 num2 mul append (stack) var 
@@ -64,10 +64,10 @@
     # Mul the numbers #
 
     (
-        stack reverse 0 get (num1) var 
+        stack reverse 0 get (num2) var 
         stack reverse 0 del reverse (stack) var
 
-        stack reverse 0 get (num2) var 
+        stack reverse 0 get (num1) var 
         stack reverse 0 del reverse (stack) var
 
         stack num1 num2 div append (stack) var 
@@ -78,10 +78,10 @@
     # Div the numbers #
 
     (
-        stack reverse 0 get (num1) var 
+        stack reverse 0 get (num2) var 
         stack reverse 0 del reverse (stack) var
 
-        stack reverse 0 get (num2) var 
+        stack reverse 0 get (num1) var 
         stack reverse 0 del reverse (stack) var
 
         stack num1 num2 mod append (stack) var 
@@ -92,10 +92,10 @@
     # Mod the numbers #
 
     (
-        stack reverse 0 get (num1) var 
+        stack reverse 0 get (num2) var 
         stack reverse 0 del reverse (stack) var
 
-        stack reverse 0 get (num2) var 
+        stack reverse 0 get (num1) var 
         stack reverse 0 del reverse (stack) var
 
         stack num1 num2 pow append (stack) var 
