@@ -13,19 +13,23 @@ Built on Stack technology.
 |9004|division the number|
 |9005|modulo the number|
 |9006|power the number|
-|9011|read memory's value|
-|9012|write value in memory|
-|9013|swap top 2 value on stack|
-|9014|pop stack's top value|
-|9015|set value of program counter|
-|9091|shutdown computer|
+|9101|is it equal the number|
+|9102|is it less the number|
+|9103|logical not the number|
+|9201|read memory's value|
+|9202|write value in memory|
+|9203|swap top 2 value on stack|
+|9204|pop stack's top value|
+|9301|set value of program counter|
+|9302|jump if condtion is true|
+|9401|shutdown computer|
 
 ## Example
 This program to addition 5987 and 8762 write result in memory. 
 ```
-9 9011 10 9011 9001 11 9013 9012 9091 5987 8762 0
+9 9201 10 9201 9001 11 9203 9202 9401 5987 8762 0
 ```
-This program to counting up forever. 
+This program to counting up until number become 5. 
 ```
-0 1 9001 1 9015
+15 9201 1 9001 15 9203 9202 15 9201 5 9101 9103 1 9302 9401 0
 ```
