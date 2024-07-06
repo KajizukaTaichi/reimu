@@ -16,7 +16,7 @@
     # Preparing #
     (Program counter: ) pc concat println
     memory pc get (number) cast (cmd) var
-    (Fetched command: ) cmd concat println
+    (Fetched value: ) cmd concat println
     false (is-executed) var
  
     # Commands around the calculation #
@@ -105,6 +105,45 @@
     cmd 9006 equal is-executed not and if
     # Pow the numbers #
 
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 num2 equal (number) cast append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9101 equal is-executed not and if
+    # Is it equal the value #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 num2 less (number) cast append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9102 equal is-executed not and if
+    # Is it lessthan the value #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 not (number) cast append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9103 equal is-executed not and if
+    # Not the value #
+
     # Commands around the memory #
 
     (
@@ -115,7 +154,7 @@
 
         true (is-executed) var
     ) () 
-    cmd 9011 equal is-executed not and if
+    cmd 9201 equal is-executed not and if
     # Get memory value at address #
 
     (
@@ -129,7 +168,7 @@
 
         true (is-executed) var
     ) () 
-    cmd 9012 equal is-executed not and if
+    cmd 9202 equal is-executed not and if
     # Write value on memory at address #
 
     (
@@ -144,15 +183,17 @@
 
         true (is-executed) var
     ) () 
-    cmd 9013 equal is-executed not and if
+    cmd 9203 equal is-executed not and if
     # Swap top 2 of the stack #
 
     ( 
         stack reverse 0 del reverse (stack) var
         true (is-executed) var
     ) () 
-    cmd 9014 equal is-executed not and if
+    cmd 9204 equal is-executed not and if
     # Pop the stack's top value #
+
+    # Commands of Control #
 
     (
         stack reverse 0 get (num1) var 
@@ -162,8 +203,24 @@
 
         true (is-executed) var
     ) () 
-    cmd 9015 equal is-executed not and if
+    cmd 9301 equal is-executed not and if
     # Set value of program counter #
+
+    (
+        stack reverse 0 get (addr) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (cond) var 
+        stack reverse 0 del reverse (stack) var
+
+        (
+            num1 1 sub (pc) var
+        ) () cond 0 equal not if
+
+        true (is-executed) var
+    ) () 
+    cmd 9302 equal is-executed not and if
+    # Jump if match the condition #
 
     # Commands of system layer #
 
@@ -172,7 +229,7 @@
         1 sleep 0 exit 
         true (is-executed) var
     ) () 
-    cmd 9091 equal is-executed not and pc memory len 1 sub less not or if
+    cmd 9401 equal is-executed not and pc memory len 1 sub less not or if
     # Shotdown processing #
 
     (
