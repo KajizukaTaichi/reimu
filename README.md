@@ -23,6 +23,7 @@ Built on Stack technology.
 |9301|set value of program counter|
 |9302|jump if condtion is true|
 |9401|shutdown computer|
+|9402|output as UTF-8 characher |
 
 ## Example
 This program to addition 5987 and 8762 write result in memory. 

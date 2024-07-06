@@ -19,7 +19,7 @@
     (Fetched value: ) cmd concat println
     false (is-executed) var
  
-    # Commands around the calculation #
+    # Commands around the number calculation #
 
     (   
         stack reverse 0 get (num1) var 
@@ -104,6 +104,8 @@
     ) () 
     cmd 9006 equal is-executed not and if
     # Pow the numbers #
+
+    # Commands of logical calculation #
 
     (
         stack reverse 0 get (num1) var 
@@ -222,15 +224,26 @@
     cmd 9302 equal is-executed not and if
     # Jump if match the condition #
 
-    # Commands of system layer #
+    # Commands of system layer I/O #
 
     (
         (Shutting down...) println
         1 sleep 0 exit 
         true (is-executed) var
     ) () 
-    cmd 9401 equal is-executed not and pc memory len 1 sub less not or if
+    cmd 9401 equal is-executed not and if
     # Shotdown processing #
+
+
+    (
+        stack reverse 0 get (str) var 
+        stack reverse 0 del reverse (stack) var
+        ([Output]: ) str decode concat println
+
+        true (is-executed) var
+    ) () 
+    cmd 9402 equal is-executed not and if
+    # Output string #
 
     (
         stack cmd append (stack) var
