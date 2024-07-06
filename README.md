@@ -32,5 +32,5 @@ This program to addition 5987 and 8762 write result in memory.
 ```
 This program to counting up until number become 5. 
 ```
-15 9201 1 9001 15 9203 9202 15 9201 5 9101 9103 1 9302 9401 0
+15 9201 1 9001 15 9203 9202 15 9201 5 9101 9103 0 9302 9401 0
 ```
