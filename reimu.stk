@@ -1,0 +1,167 @@
+# Show welcome message #
+(Reimu: virtual machine - Built on Stack technology\n(c) 2024 梶塚太智. All rights reserved\n) println
+
+# It make user input memory's data #
+[(Input memory's data: ) input eval] (memory) var
+[] (stack) var 0 (pc) var 
+
+(Starting up...\n) println
+2 sleep
+
+(
+    # Show state #
+    (Data stack: ) stack concat println
+    (Working memory: ) memory concat println
+
+    # Preparing #
+    (Program counter: ) pc concat println
+    memory pc get (number) cast (cmd) var
+    (Fetched command: ) cmd concat println
+    false (is-executed) var
+ 
+    # Commands around the calculation #
+
+    (   
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 num2 add append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9001 equal is-executed not and if
+    # Add the numbers #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 num2 sub append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9002 equal is-executed not and if
+    # Sub the numbers #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 num2 mul append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9003 equal is-executed not and if
+    # Mul the numbers #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 num2 div append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9004 equal is-executed not and if
+    # Div the numbers #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 num2 mod append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9005 equal is-executed not and if
+    # Mod the numbers #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 num2 pow append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9006 equal is-executed not and if
+    # Pow the numbers #
+
+    # Commands around the memory #
+
+    (
+        stack reverse 0 get (addr) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack memory addr get (number) cast append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9011 equal is-executed not and if
+    # Get memory value at address #
+
+    (
+        stack reverse 0 get (value) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (addr) var 
+        stack reverse 0 del reverse (stack) var
+
+        memory addr value set (memory) var
+
+        true (is-executed) var
+    ) () 
+    cmd 9012 equal is-executed not and if
+    # Write value on memory at address #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack reverse 0 get (num2) var 
+        stack reverse 0 del reverse (stack) var
+
+        stack num1 append (stack) var
+        stack num2 append (stack) var 
+
+        true (is-executed) var
+    ) () 
+    cmd 9013 equal is-executed not and if
+    # Swap top 2 of the stack #
+
+    (
+        (Shutting down...) println
+        1 sleep 0 exit 
+        true (is-executed) var
+    ) () 
+    cmd 9091 equal is-executed not and pc memory len 1 sub less not or if
+    # Shotdown processing #
+
+    (
+        stack cmd append (stack) var
+        true (is-executed) var
+    ) () 
+    is-executed not if
+    # Push value on the stack #
+
+    pc 1 add (pc) var # Count up program counter #
+    (Continue...) println () input pop  
+) true while
