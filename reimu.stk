@@ -147,6 +147,26 @@
     cmd 9013 equal is-executed not and if
     # Swap top 2 of the stack #
 
+    ( 
+        stack reverse 0 del reverse (stack) var
+        true (is-executed) var
+    ) () 
+    cmd 9014 equal is-executed not and if
+    # Pop the stack's top value #
+
+    (
+        stack reverse 0 get (num1) var 
+        stack reverse 0 del reverse (stack) var
+
+        num1 1 sub (pc) var
+
+        true (is-executed) var
+    ) () 
+    cmd 9015 equal is-executed not and if
+    # Set value of program counter #
+
+    # Commands of system layer #
+
     (
         (Shutting down...) println
         1 sleep 0 exit 
