@@ -22,6 +22,7 @@ Built on Stack technology.
 |9204|pop stack's top value|
 |9301|set value of program counter|
 |9302|jump if condtion is true|
+|9303|Non processing|
 |9401|shutdown computer|
 |9402|output as UTF-8 characher |
 

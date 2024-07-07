@@ -224,6 +224,12 @@
     cmd 9302 equal is-executed not and if
     # Jump if match the condition #
 
+    (
+        true (is-executed) var
+    ) ()
+    cmd 9303 equal is-executed not and if
+    # Non processing #
+
     # Commands of system layer I/O #
 
     (
