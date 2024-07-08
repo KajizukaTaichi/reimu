@@ -35,3 +35,7 @@ This program to counting up until number become 5.
 ```
 0 1 9001 0 9203 9202 0 9201 5 9101 9103 0 9302 9401
 ```
+This program to output "Hello, world!" message.
+```
+72 9402 101 9402 108 9402 108 9402 111 9402 44 9402 32 9402 119 9402 111 9402 114 9402 108 9402 100 9402 33 9402 
+```
