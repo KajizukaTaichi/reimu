@@ -21,7 +21,7 @@ cls title println
     (Program counter: ) pc concat println
     memory pc get (number) cast (cmd) var
     (Fetched value  : ) cmd concat println
-    false (is-executed) var (Execution      : ) print
+    false (is-executed) var (Next execution : ) print
 
     # Commands around the number calculation #
 
@@ -288,5 +288,5 @@ cls title println
 
     # Count up program counter #
     pc 1 add (pc) var 
-    0.3 sleep  
+    0.5 sleep  
 ) (flag) while
