@@ -267,7 +267,7 @@ cls title println
         stack reverse 0 get (str) var 
         stack reverse 0 del reverse (stack) var
 
-        output str concat (output) var 
+        output str decode concat (output) var 
 
         (Output value as UTF-8 charcher) println
 
@@ -277,7 +277,7 @@ cls title println
     # Output string #
 
     (
-        stack cmd decode append (stack) var
+        stack cmd append (stack) var
         true (is-executed) var
         cmd ( is pushed on the stack) concat println
     ) () 
