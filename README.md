@@ -18,7 +18,7 @@ Built on Stack technology.
 |9103|logical not the number|
 |9201|read memory's value|
 |9202|write value in memory|
-|9203|swap top 2 value on stack|
+|9203|swap top 2 value on the stack|
 |9204|pop stack's top value|
 |9301|set value of program counter|
 |9302|jump if condtion is true|
@@ -37,5 +37,5 @@ This program to counting up until number become 5.
 ```
 This program to output "Hello, world!" message.
 ```
-72 9402 101 9402 108 9402 108 9402 111 9402 44 9402 32 9402 119 9402 111 9402 114 9402 108 9402 100 9402 33 9402 
+72 9402 101 9402 108 9402 108 9402 111 9402 44 9402 32 9402 119 9402 111 9402 114 9402 108 9402 100 9402 33 9402 9401
 ```
