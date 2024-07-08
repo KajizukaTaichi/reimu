@@ -277,7 +277,7 @@ cls title println
     # Output string #
 
     (
-        stack cmd append (stack) var
+        stack cmd decode append (stack) var
         true (is-executed) var
         cmd ( is pushed on the stack) concat println
     ) () 
