@@ -1,24 +1,28 @@
 # Show welcome message #
-(Reimu: virtual machine - Built on Stack technology\n(c) 2024 梶塚太智. All rights reserved\n) println
+(Reimu: virtual machine - Built on Stack technology\n(c) 2024 梶塚太智. All rights reserved\n) (title) var
+cls title println
 
 # It make user input memory's data #
 [(Input memory's data: ) input eval] (memory) var
-[] (stack) var 0 (pc) var 
+[] (stack) var 0 (pc) var () (output) var true (flag) var
 
 (Starting up...\n) println
 2 sleep
 
 (
+    # Show title message #
+    cls title println
+    
     # Show state #
-    (Data stack: ) stack concat println
-    (Working memory: ) memory concat println
+    (Data stack     : ) stack concat println
+    (Working memory : ) memory concat println
 
     # Preparing #
     (Program counter: ) pc concat println
     memory pc get (number) cast (cmd) var
-    (Fetched value: ) cmd concat println
-    false (is-executed) var
- 
+    (Fetched value  : ) cmd concat println
+    false (is-executed) var (Execution      : ) print
+
     # Commands around the number calculation #
 
     (   
@@ -31,6 +35,7 @@
         stack num1 num2 add append (stack) var 
 
         true (is-executed) var
+        (Addition the number) println
     ) () 
     cmd 9001 equal is-executed not and if
     # Add the numbers #
@@ -45,6 +50,7 @@
         stack num1 num2 sub append (stack) var 
 
         true (is-executed) var
+        (Subtraction the number) println
     ) () 
     cmd 9002 equal is-executed not and if
     # Sub the numbers #
@@ -59,6 +65,7 @@
         stack num1 num2 mul append (stack) var 
 
         true (is-executed) var
+        (Multiplication the number) println
     ) () 
     cmd 9003 equal is-executed not and if
     # Mul the numbers #
@@ -73,6 +80,7 @@
         stack num1 num2 div append (stack) var 
 
         true (is-executed) var
+        (Division the number) println
     ) () 
     cmd 9004 equal is-executed not and if
     # Div the numbers #
@@ -87,6 +95,7 @@
         stack num1 num2 mod append (stack) var 
 
         true (is-executed) var
+        (Modulo the number) println
     ) () 
     cmd 9005 equal is-executed not and if
     # Mod the numbers #
@@ -101,6 +110,7 @@
         stack num1 num2 pow append (stack) var 
 
         true (is-executed) var
+        (Power the number) println
     ) () 
     cmd 9006 equal is-executed not and if
     # Pow the numbers #
@@ -117,6 +127,7 @@
         stack num1 num2 equal (number) cast append (stack) var 
 
         true (is-executed) var
+        (Compare is it equal the number) println
     ) () 
     cmd 9101 equal is-executed not and if
     # Is it equal the value #
@@ -131,6 +142,7 @@
         stack num1 num2 less (number) cast append (stack) var 
 
         true (is-executed) var
+        (Compare is it lessthan the number) println
     ) () 
     cmd 9102 equal is-executed not and if
     # Is it lessthan the value #
@@ -142,6 +154,7 @@
         stack num1 not (number) cast append (stack) var 
 
         true (is-executed) var
+        (Logical not the number) println
     ) () 
     cmd 9103 equal is-executed not and if
     # Not the value #
@@ -155,6 +168,7 @@
         stack memory addr get (number) cast append (stack) var 
 
         true (is-executed) var
+        (Read memory's value) println
     ) () 
     cmd 9201 equal is-executed not and if
     # Get memory value at address #
@@ -169,6 +183,7 @@
         memory addr value set (memory) var
 
         true (is-executed) var
+        (Write value in memory) println
     ) () 
     cmd 9202 equal is-executed not and if
     # Write value on memory at address #
@@ -184,13 +199,16 @@
         stack num2 append (stack) var 
 
         true (is-executed) var
+        (Swap top 2 value on stack) println
     ) () 
     cmd 9203 equal is-executed not and if
     # Swap top 2 of the stack #
 
     ( 
         stack reverse 0 del reverse (stack) var
+        
         true (is-executed) var
+        (Pop stack's top value) println
     ) () 
     cmd 9204 equal is-executed not and if
     # Pop the stack's top value #
@@ -204,6 +222,7 @@
         num1 1 sub (pc) var
 
         true (is-executed) var
+        (Set value of program counter) println
     ) () 
     cmd 9301 equal is-executed not and if
     # Set value of program counter #
@@ -220,12 +239,14 @@
         ) () cond 0 equal not if
 
         true (is-executed) var
+        (Jump if condtion is true) println
     ) () 
     cmd 9302 equal is-executed not and if
     # Jump if match the condition #
 
     (
         true (is-executed) var
+        (Non processing) println
     ) ()
     cmd 9303 equal is-executed not and if
     # Non processing #
@@ -234,7 +255,8 @@
 
     (
         (Shutting down...) println
-        1 sleep 0 exit 
+        false (flag) var
+
         true (is-executed) var
     ) () 
     cmd 9401 equal is-executed not and if
@@ -244,7 +266,10 @@
     (
         stack reverse 0 get (str) var 
         stack reverse 0 del reverse (stack) var
-        ([Output]: ) str decode concat println
+
+        output str concat (output) var 
+
+        (Output value as UTF-8 charcher) println
 
         true (is-executed) var
     ) () 
@@ -254,10 +279,14 @@
     (
         stack cmd append (stack) var
         true (is-executed) var
+        cmd ( is pushed on the stack) concat println
     ) () 
     is-executed not if
     # Push value on the stack #
 
-    pc 1 add (pc) var # Count up program counter #
-    () println 0.5 sleep  
-) true while
+    (Standard output: ) output concat println
+
+    # Count up program counter #
+    pc 1 add (pc) var 
+    0.3 sleep  
+) (flag) while
