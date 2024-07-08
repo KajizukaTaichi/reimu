@@ -199,7 +199,7 @@ cls title println
         stack num2 append (stack) var 
 
         true (is-executed) var
-        (Swap top 2 value on stack) println
+        (Swap top 2 value on the stack) println
     ) () 
     cmd 9203 equal is-executed not and if
     # Swap top 2 of the stack #
@@ -279,7 +279,7 @@ cls title println
     (
         stack cmd append (stack) var
         true (is-executed) var
-        cmd ( is pushed on the stack) concat println
+        (Push value on the stack) println
     ) () 
     is-executed not if
     # Push value on the stack #
